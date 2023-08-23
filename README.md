@@ -44,4 +44,7 @@ The last step is using [run_face_alignment.py](https://github.com/vitoralbiero/i
 
 ### Benchmark Collection
 
-TODO
+After you having the BA-test dataset, you can simply run [image_collection.py](https://github.com/HaiyuWu/BA-test-dataset/blob/main/image_collection.py) to collect the benchmark images.
+```
+python3 image_collection.py -im_path BA-test.txt -label ./benchmark/benchmark_labels.csv -dest ./benchmark/images -n BA-test_benchmark
+```

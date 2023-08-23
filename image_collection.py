@@ -20,7 +20,8 @@ def im_path_grouping(im_path_file):
 
 def dataset_collection(csv_label_file,
                        im_path_file,
-                       destination):
+                       destination,
+                       file_name):
     image_names = im_name_collection(csv_label_file)
     path_dict = im_path_grouping(im_path_file)
     image_paths = []
@@ -30,7 +31,7 @@ def dataset_collection(csv_label_file,
             makedirs(aim_folder)
         image_paths.append(path.join(destination, image_name))
         shutil.copy(path_dict[image_name], aim_folder)
-    np.savetxt(path.join(path.split(destination)[0], "BA-test.txt"), image_paths, fmt="%s")
+    np.savetxt(path.join(path.split(destination)[0], f"{file_name}.txt"), image_paths, fmt="%s")
     print("Done!")
 
 
@@ -47,8 +48,12 @@ if __name__ == '__main__':
     parser.add_argument(
         "--destination", "-dest", help="Destination.", type=str, default="./BA-test/images"
     )
+    parser.add_argument(
+        "--file_name", "-n", help="saved file name.", type=str, default="BA-test"
+    )
     args = parser.parse_args()
 
     dataset_collection(args.label_file,
                        args.im_path_file,
-                       args.destination)
+                       args.destination,
+                       args.file_name)
