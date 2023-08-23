@@ -23,11 +23,14 @@ def dataset_collection(csv_label_file,
                        destination):
     image_names = im_name_collection(csv_label_file)
     path_dict = im_path_grouping(im_path_file)
+    image_paths = []
     for image_name in image_names:
         aim_folder = path.join(destination, image_name.split("/")[0])
         if not path.exists(aim_folder):
             makedirs(aim_folder)
+        image_paths.append(path.join(destination, image_name))
         shutil.copy(path_dict[image_name], aim_folder)
+    np.savetxt(path.join(path.split(destination)[0], "BA-test.txt"), image_paths, fmt="%s")
     print("Done!")
 
 
