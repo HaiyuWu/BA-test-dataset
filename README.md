@@ -27,7 +27,12 @@ If you use any part of our code or dataset, please cite our paper and VGGFace2 p
 }
 ```
 ### Dataset Collection
-
+#### **!!!!!UPDATE!!!!!**
+Now you can get the dataset at [BA-test](https://drive.google.com/file/d/1jV38hdimoZXRctAKXh5LttV1_z_HvWLw/view?usp=drive_link) and extract the images by:
+```
+python3 get_images.py -zx .zx/file/path
+```
+#### Other Way
 You need to have the VGGFace2 (original version) dataset first, then use [file_path_extractor.py](https://github.com/HaiyuWu/LogicalConsistency/blob/main/file_path_extractor.py) to collect the image paths:
 
 ```
