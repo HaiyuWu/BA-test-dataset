@@ -18,7 +18,7 @@ def extract(args):
             save_folder = path.join(args.destination, path.split(im_names[i])[0])
             if not path.exists(save_folder):
                 makedirs(save_folder)
-            cv2.imwrite(path.join(args.destination, im_names), img)
+            cv2.imwrite(path.join(args.destination, im_names[i]), img)
 
 
 if __name__ == '__main__':
@@ -31,3 +31,5 @@ if __name__ == '__main__':
     parser.add_argument(
         "--destination", "-dest", help="Destination.", type=str, default="./BA-test/images"
     )
+    args = parser.parse_args()
+    extract(args)
